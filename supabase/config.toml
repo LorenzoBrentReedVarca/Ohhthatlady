@@ -1,0 +1,6 @@
+project_id = "jojupwhsfzefucbfwctw"
+
+# The contact form is submitted by anonymous visitors, so this function must
+# not require a user JWT.
+[functions.notify-contact]
+verify_jwt = false

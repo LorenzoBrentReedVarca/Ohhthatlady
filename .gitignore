@@ -1,0 +1,9 @@
+# Supabase CLI local cache/state — machine-specific, not project source
+supabase/.temp/
+
+# Local Claude Code tool settings — not project source
+.claude/
+
+# OS cruft
+.DS_Store
+Thumbs.db
