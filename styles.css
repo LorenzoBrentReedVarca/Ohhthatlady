@@ -121,24 +121,59 @@ body::after{
   transform:scaleX(0);transform-origin:left;will-change:transform;
 }
 
+/* ============ custom cursor ============ */
+/* Fine-pointer desktops only — script.js adds .cursor-on to <html> after
+   confirming (hover:hover) and (pointer:fine) and that motion isn't
+   reduced; on touch devices this whole block stays inert and the native
+   cursor is untouched. */
+#cursor{
+  position:fixed;top:0;left:0;z-index:200;pointer-events:none;
+  width:34px;height:34px;margin:-17px 0 0 -17px;
+  border-radius:50%;border:1px solid var(--ivory);
+  opacity:0;will-change:transform;
+  transition:opacity .3s ease,width .35s var(--ease),height .35s var(--ease),
+             margin .35s var(--ease),border-color .35s ease,background .35s ease;
+  mix-blend-mode:difference;
+}
+#cursor span{
+  position:absolute;inset:0;margin:auto;width:5px;height:5px;border-radius:50%;
+  background:var(--ivory);transition:opacity .3s ease,transform .35s var(--ease);
+}
+html.cursor-on{cursor:none}
+html.cursor-on a,html.cursor-on button,html.cursor-on input,html.cursor-on textarea{cursor:none}
+html.cursor-on #cursor{opacity:1}
+#cursor.grow{width:64px;height:64px;margin:-32px 0 0 -32px;border-color:var(--gold)}
+#cursor.grow span{transform:scale(0);opacity:0}
+#cursor.hide{opacity:0}
+
+/* Magnetic pull — JS nudges the element's transform toward the cursor as it
+   approaches; this transition is what makes each nudge feel like a pull
+   rather than a snap, and what springs it back to rest on mouseleave. */
+.magnetic{transition:transform .28s cubic-bezier(.2,.7,.3,1)}
+
 /* ============ header ============ */
-/* Solid navy from the first frame — not transparent-over-hero. .solid only
-   adds scroll depth (shadow, tighter bottom hairline), it never changes color. */
+/* Transparent over the hero; .solid (added by script.js past 60px scroll)
+   brings in a fill and scroll-depth shadow. Which fill depends on
+   [data-tone] — set by the scrollspy in script.js to match whichever
+   section is currently behind the header, navy for dark sections, cream
+   for light ones — so the bar always reads against what's under it. */
 header{
   position:fixed;inset:0 0 auto;z-index:80;
-  background:var(--char);
-  border-bottom:1px solid rgba(205,182,143,.14);
-  transition:box-shadow .5s var(--ease),border-color .5s ease;
+  background:transparent;
+  transition:background .4s var(--ease),box-shadow .5s var(--ease);
 }
-header.solid{box-shadow:0 12px 34px -18px rgba(7,21,57,.55);border-color:rgba(205,182,143,.26)}
+header.solid{background:var(--char);box-shadow:0 12px 34px -18px rgba(7,21,57,.55)}
+header.solid[data-tone="light"]{background:var(--bone)}
+
+header.solid[data-tone="light"] .nav a.n{color:var(--ink)}
+header.solid[data-tone="light"] .nav a.n.active{color:var(--crimson)}
+header.solid[data-tone="light"] .burger span{background:var(--ink)}
 
 .nav{
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
   height:var(--hdr-h);column-gap:16px;
 }
-.mark{display:flex;align-items:center;text-decoration:none;color:var(--ivory);justify-self:start;min-width:0}
-.mark-logo{height:42px;width:auto;flex:none;display:block;transition:opacity .3s ease}
-.mark:hover .mark-logo{opacity:.85}
+
 
 /* the <nav> element is the grid item that needs centering; the ul just lays
    out its own children */
@@ -238,7 +273,7 @@ header.solid{box-shadow:0 12px 34px -18px rgba(7,21,57,.55);border-color:rgba(20
 }
 .burger span{
   position:absolute;left:9px;width:22px;height:1px;background:var(--ivory);
-  transition:transform .4s var(--ease),opacity .25s ease;
+  transition:transform .4s var(--ease),opacity .25s ease,background .3s ease;
 }
 .burger span:nth-child(1){top:16px}
 .burger span:nth-child(2){top:23px}

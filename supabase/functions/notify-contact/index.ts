@@ -8,13 +8,13 @@
 //    supabase secrets set RESEND_API_KEY=re_xxxxxxxx
 //
 //  Optional secrets:
-//    NOTIFY_TO    — destination inbox   (default: brentreed623@gmail.com)
+//    NOTIFY_TO    — destination inbox   (default: ailenettugna@gmail.com)
 //    NOTIFY_FROM  — verified sender     (default: onboarding@resend.dev)
 //    ALLOW_ORIGIN — CORS origin         (default: * )
 // ============================================================================
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
-const NOTIFY_TO      = Deno.env.get("NOTIFY_TO")      ?? "brentreed623@gmail.com";
+const NOTIFY_TO      = Deno.env.get("NOTIFY_TO")      ?? "ailenettugna@gmail.com";
 const NOTIFY_FROM    = Deno.env.get("NOTIFY_FROM")    ?? "Website <onboarding@resend.dev>";
 const ALLOW_ORIGIN   = Deno.env.get("ALLOW_ORIGIN")   ?? "*";
 

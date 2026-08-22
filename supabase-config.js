@@ -22,7 +22,7 @@ const NOTIFY_FUNCTION = 'notify-contact';
 
 /* Where contact-form notifications are delivered. Also used for the
    "email me directly instead" fallback link when the network is down. */
-const NOTIFY_EMAIL = 'brentreed623@gmail.com';
+const NOTIFY_EMAIL = 'ailenettugna@gmail.com';
 
 /* -------------------------------------------------------------------------- */
 

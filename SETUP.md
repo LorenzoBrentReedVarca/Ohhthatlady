@@ -2,7 +2,7 @@
 
 The site is finished and runs as-is. This document covers the one part that
 needs your hands: making contact-form messages arrive at
-**brentreed623@gmail.com**.
+**ailenettugna@gmail.com**.
 
 ## Current state
 
@@ -78,7 +78,7 @@ supabase login
 supabase link --project-ref jojupwhsfzefucbfwctw
 
 supabase secrets set RESEND_API_KEY=re_your_key_here
-supabase secrets set NOTIFY_TO=brentreed623@gmail.com
+supabase secrets set NOTIFY_TO=ailenettugna@gmail.com
 
 supabase functions deploy notify-contact --no-verify-jwt
 ```

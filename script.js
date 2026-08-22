@@ -153,6 +153,17 @@
     .map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); })
     .filter(Boolean);
 
+  /* Light sections (cream/ivory backgrounds) need a light header to read
+     against; everything else (hero, navy bands, contact) keeps the dark
+     header. .cream is the only explicitly light modifier — a plain .band
+     with no dark/deep class is also light (the default ivory body shows
+     through), so it's the fallback case. */
+  function sectionTone(el) {
+    if (el.classList.contains("cream")) return "light";
+    if (el.classList.contains("band") && !el.classList.contains("dark") && !el.classList.contains("deep")) return "light";
+    return "dark";
+  }
+
   if ("IntersectionObserver" in window && sections.length) {
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -160,6 +171,7 @@
         navLinks.forEach(function (a) {
           a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id);
         });
+        hdr.dataset.tone = sectionTone(e.target);
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     sections.forEach(function (s) { spy.observe(s); });

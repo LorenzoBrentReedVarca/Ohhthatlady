@@ -33,7 +33,7 @@ python -m http.server 8000
 
 ## Contact form &amp; visit log
 
-Submissions are written to Supabase and emailed to **brentreed623@gmail.com**.
+Submissions are written to Supabase and emailed to **ailenettugna@gmail.com**.
 A second table, `page_visits`, logs a lightweight, cookie-free record of who
 checks the site — timestamp, referrer, browser, screen size, no IP address.
 Neither table is created yet — **see [SETUP.md](SETUP.md)** for the steps that
