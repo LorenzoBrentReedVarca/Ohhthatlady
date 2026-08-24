@@ -14,7 +14,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero.jpg">
 <link rel="stylesheet" href="styles.css">
 
@@ -33,13 +33,14 @@
 
 <header id="hdr">
   <div class="wrap nav">
-    <a href="#top" class="mark"></a>
     <nav aria-label="Primary"><ul>
       <li><a class="n" href="#top">Home</a></li>
-      <li><a class="n" href="#about">About</a></li>
       <li><a class="n" href="#services">Services</a></li>
-      <li><a class="n" href="#proj">Project</a></li>
-      <li><a class="n" href="#journal">Blog</a></li>
+      <li><a class="n" href="#about">About</a></li>
+      <li><a class="n" href="#proj">Projects</a></li>
+    </ul></nav>
+    <a href="#top" class="mark"><img src="img/LOGO.png" alt="Ailene Tungala Tugna"></a>
+    <nav aria-label="Secondary"><ul>
       <li><a class="n" href="#communities">Communities</a></li>
       <li><a class="n" href="#contact">Let&rsquo;s Work Together!</a></li>
     </ul></nav>
@@ -53,10 +54,9 @@
   <div class="wrap">
     <ol>
       <li><a href="#top">Home</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#proj">Project</a></li>
-      <li><a href="#journal">Blog</a></li>
       <li><a href="#communities">Communities</a></li>
       <li><a href="#contact">Let&rsquo;s Work Together!</a></li>
     </ol>
@@ -92,53 +92,19 @@
 
 <!-- ============ STATEMENT ============ -->
 <section class="band deep">
-  <div class="wrap statement">
-    <svg class="glyph rv" width="86" height="86" viewBox="0 0 86 86" fill="none" aria-hidden="true">
-      <ellipse cx="43" cy="43" rx="42" ry="30" stroke="#B99B6B" stroke-width=".75"/>
-      <ellipse cx="43" cy="43" rx="30" ry="42" stroke="#B99B6B" stroke-width=".75" opacity=".55"/>
-      <text x="43" y="52" text-anchor="middle" font-family="Bodoni Moda, Georgia, serif" font-size="24" fill="#F7F2EA" letter-spacing="1">AT</text>
-    </svg>
-    <blockquote class="rv">Vision is not the work. <em>The system underneath it is.</em></blockquote>
-    <p class="sub rv">I curate and build structured, revenue-generating systems that turn vision into measurable results across operations, real estate and live experiences. I lead with discipline, resilience and strategic execution — creating impact, opportunity and scalable growth in every venture and partnership I take on.</p>
-    <div class="rule rv" aria-hidden="true"></div>
+  <div class="side-fx" aria-hidden="true">
+    <span class="fx fx-l" style="top:14%;animation-delay:0s">Driven</span>
+    <span class="fx fx-l" style="top:47%;animation-delay:1.6s">Reliable</span>
+    <span class="fx fx-l" style="top:79%;animation-delay:3.2s">Sharp instincts</span>
+    <span class="fx fx-r" style="top:20%;animation-delay:.8s">Dependable</span>
+    <span class="fx fx-r" style="top:53%;animation-delay:2.4s">Detail-oriented</span>
+    <span class="fx fx-r" style="top:85%;animation-delay:4s">Resourceful</span>
   </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section class="band" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <figure class="about-figure rv rv-l">
-        <div class="ph lq-about">
-          <img class="photo" src="img/about.jpg" alt="Ailene Tungala Tugna" loading="lazy" width="1100" height="1350">
-        </div>
-        <figcaption>Abu Dhabi, 2026</figcaption>
-      </figure>
-      <div class="about-copy rv rv-r">
-        <p class="label">About</p>
-        <h2 class="sec-title">Fifteen years of<br>making it happen</h2>
-        <p style="margin-top:32px">I started in administration and quality control in the Philippines, learning that the detail is the work. Everything since has been a version of that lesson.</p>
-        <p>From a VVIP casino floor at City of Dreams Manila to a supervisor's desk at Okada. From SMDC, where I closed PHP 150 million in property in 45 days and supervised more than thirty brokers, to Dubai, where I ran acquisitions, leasing and operations for a property portfolio.</p>
-        <p>Then marketing found me. At AVANTGARDE I worked across destination campaigns for Abu Dhabi, luxury activations for FENDI, Charlotte Tilbury and Diptyque, and brand experiences for GAGGENAU and Lexus. From 2022 to May 2026 I served as Operations Director, holding Sales, Marketing, Admin, Accounts, Operations and HR — through the hardest years of my life. I learned that leadership is mostly the discipline of continuing to show up.</p>
-        <ul class="facts">
-          <li><span class="k">Based</span><span>Abu Dhabi &amp; Dubai, United Arab Emirates</span></li>
-          <li><span class="k">Focus</span><span>Brand partnerships, experiential marketing, operations</span></li>
-          <li><span class="k">Worked&nbsp;with</span><span>DCT Abu Dhabi, GAGGENAU, FENDI, adidas, ADNOC, du, Lexus</span></li>
-        </ul>
-        <a class="link" href="#services">See selected work <span>&rarr;</span></a>
-      </div>
-    </div>
-
-    <div class="ax rv" id="about-expand">
-      <div class="ax-tabs" id="ax-tabs" role="tablist" aria-label="About details">
-        <button class="ax-tab" type="button" data-ax="journey" role="tab" aria-selected="true">Professional Journey</button>
-        <button class="ax-tab" type="button" data-ax="software" role="tab" aria-selected="false">Software &amp; Platforms</button>
-        <button class="ax-tab" type="button" data-ax="skills" role="tab" aria-selected="false">Skills &amp; Trainings</button>
-      </div>
-      <div class="ax-panel on" data-ax-panel="journey" id="ax-journey"></div>
-      <div class="ax-panel" data-ax-panel="software" id="ax-software"></div>
-      <div class="ax-panel" data-ax-panel="skills" id="ax-skills"></div>
-    </div>
+  <div class="wrap statement">
+    <img class="glyph rv" src="img/LOGO.png" alt="" width="120" height="120" aria-hidden="true">
+    <blockquote class="rv">Vision is not the work. <em>The system underneath it is.</em></blockquote>
+    <p class="sub rv">I curate and build structured, <span class="kw">revenue-generating</span> systems that turn vision into <span class="kw">measurable results</span> across operations, real estate and live experiences. I lead with <span class="kw">discipline</span>, <span class="kw">resilience</span> and strategic execution — creating <span class="kw">impact</span>, opportunity and <span class="kw">scalable growth</span> in every venture and partnership I take on.</p>
+    <div class="rule rv" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -213,7 +179,50 @@
         <figcaption>One person, holding the whole brief.</figcaption>
       </figure>
     </div>
+  </div>
+</section>
 
+<!-- ============ ABOUT ============ -->
+<section class="band" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <figure class="about-figure rv rv-l">
+        <div class="ph lq-about">
+          <img class="photo" src="img/about.jpg" alt="Ailene Tungala Tugna" loading="lazy" width="1100" height="1350">
+        </div>
+        <figcaption>Abu Dhabi, 2026</figcaption>
+      </figure>
+      <div class="about-copy rv rv-r">
+        <p class="label">About</p>
+        <h2 class="sec-title">Fifteen years of<br>making it happen</h2>
+        <p style="margin-top:32px">I started in administration and quality control in the Philippines, learning that the detail is the work. Everything since has been a version of that lesson.</p>
+        <p>From a VVIP casino floor at City of Dreams Manila to a supervisor's desk at Okada. From SMDC, where I closed PHP 150 million in property in 45 days and supervised more than thirty brokers, to Dubai, where I ran acquisitions, leasing and operations for a property portfolio.</p>
+        <p>Then marketing found me. At AVANTGARDE I worked across destination campaigns for Abu Dhabi, luxury activations for FENDI, Charlotte Tilbury and Diptyque, and brand experiences for GAGGENAU and Lexus. From 2022 to May 2026 I served as Operations Director, holding Sales, Marketing, Admin, Accounts, Operations and HR — through the hardest years of my life. I learned that leadership is mostly the discipline of continuing to show up.</p>
+        <ul class="facts">
+          <li><span class="k">Based</span><span>Abu Dhabi &amp; Dubai, United Arab Emirates</span></li>
+          <li><span class="k">Focus</span><span>Brand partnerships, experiential marketing, operations</span></li>
+          <li><span class="k">Worked&nbsp;with</span><span>DCT Abu Dhabi, GAGGENAU, FENDI, adidas, ADNOC, du, Lexus</span></li>
+        </ul>
+        <a class="link" href="#services">See selected work <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="ax rv" id="about-expand">
+      <div class="ax-tabs" id="ax-tabs" role="tablist" aria-label="About details">
+        <button class="ax-tab" type="button" data-ax="journey" role="tab" aria-selected="true">Professional Journey</button>
+        <button class="ax-tab" type="button" data-ax="software" role="tab" aria-selected="false">Software &amp; Platforms</button>
+        <button class="ax-tab" type="button" data-ax="skills" role="tab" aria-selected="false">Skills &amp; Trainings</button>
+      </div>
+      <div class="ax-panel on" data-ax-panel="journey" id="ax-journey"></div>
+      <div class="ax-panel" data-ax-panel="software" id="ax-software"></div>
+      <div class="ax-panel" data-ax-panel="skills" id="ax-skills"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="band" id="proj-section">
+  <div class="wrap">
     <div class="proj-intro rv">
       <p class="label">Selected projects</p>
       <h3 class="sec-title" style="font-size:clamp(24px,3vw,34px);margin:14px 0 0">Campaigns, activations and productions</h3>
@@ -225,77 +234,77 @@
       <div class="proj-list" id="proj-list"></div>
     </div>
   </div>
-</section>
 
-<!-- ============ CONVERSATIONS ============ -->
-<section class="band dark" id="journal">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div>
-        <p class="label">ONE by AVA</p>
-        <h2 class="sec-title">Conversations</h2>
-      </div>
-      <p class="lede" style="max-width:38ch">A podcast and interview series on brand, craft and the people building both.</p>
-    </div>
-  </div>
-
-  <div class="marquee rv" aria-label="Selected clients">
-    <div class="marquee-track" id="marq">
-      <div>
-        <span>DCT Abu Dhabi</span><span>GAGGENAU</span><span>FENDI</span><span>Charlotte Tilbury</span><span>adidas</span><span>Diptyque</span><span>Lexus</span><span>du</span><span>ADNOC</span><span>Bath &amp; Body Works</span><span>Tawazun</span><span>Formula Woman</span>
+  <!-- ============ PODCASTS ============ -->
+  <section class="band dark" id="podcasts">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <p class="label">ONE by AVA</p>
+          <h2 class="sec-title">Podcasts</h2>
+        </div>
+        <p class="lede" style="max-width:38ch">A podcast and interview series on brand, craft and the people building both.</p>
       </div>
     </div>
-  </div>
 
-  <div class="wrap">
-    <div class="carousel rv" id="car">
-      <article class="slide on">
-        <div class="who">
-          <p class="label">Fashion &amp; luxury</p>
-          <p class="n">Michael Cinco</p>
-          <p class="t">Couturier &middot; Dubai &amp; Manila</p>
+    <div class="marquee rv" aria-label="Selected clients">
+      <div class="marquee-track" id="marq">
+        <div>
+          <span>DCT Abu Dhabi</span><span>GAGGENAU</span><span>FENDI</span><span>Charlotte Tilbury</span><span>adidas</span><span>Diptyque</span><span>Lexus</span><span>du</span><span>ADNOC</span><span>Bath &amp; Body Works</span><span>Tawazun</span><span>Formula Woman</span>
         </div>
-        <div class="body">
-          <p>A conversation with the Filipino couturier on his creative journey, his international fashion career and how a design philosophy survives the move from atelier to global stage.</p>
-          <a class="link" href="https://www.youtube.com/watch?v=jkEeFAq2Ed8" target="_blank" rel="noopener">Watch the interview <span>&#8599;</span></a>
-        </div>
-      </article>
-      <article class="slide">
-        <div class="who">
-          <p class="label">Brand communities</p>
-          <p class="n">Marc Schumacher</p>
-          <p class="t">Brand &amp; community strategist</p>
-        </div>
-        <div class="body">
-          <p>On the power of brand communities: how loyalty is built around shared values rather than campaigns, and what changes when a brand stops broadcasting and starts convening.</p>
-          <a class="link" href="https://www.youtube.com/watch?v=0yh5EihmNiY" target="_blank" rel="noopener">Watch the interview <span>&#8599;</span></a>
-        </div>
-      </article>
-      <article class="slide">
-        <div class="who">
-          <p class="label">Brand experience</p>
-          <p class="n">Philip Bucknell</p>
-          <p class="t">Experiential marketing</p>
-        </div>
-        <div class="body">
-          <p>On the future of brand experiences: the shift from traditional marketing toward live, immersive work, and the rising expectations audiences bring to a room before they enter it.</p>
-          <a class="link" href="https://www.youtube.com/watch?v=BcO-Z3EJWb0" target="_blank" rel="noopener">Watch the interview <span>&#8599;</span></a>
-        </div>
-      </article>
-    </div>
-
-    <div class="car-ctl">
-      <div class="dots" id="dots" role="tablist" aria-label="Conversations"></div>
-      <div class="car-nav">
-        <button type="button" id="prev" aria-label="Previous conversation">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M10 2 4 8l6 6"/></svg>
-        </button>
-        <button type="button" id="next" aria-label="Next conversation">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg>
-        </button>
       </div>
     </div>
-  </div>
+
+    <div class="wrap">
+      <div class="carousel rv" id="car">
+        <article class="slide on">
+          <div class="who">
+            <p class="label">Fashion &amp; luxury</p>
+            <p class="n">Michael Cinco</p>
+            <p class="t">Couturier &middot; Dubai &amp; Manila</p>
+          </div>
+          <div class="body">
+            <p>A conversation with the Filipino couturier on his creative journey, his international fashion career and how a design philosophy survives the move from atelier to global stage.</p>
+            <a class="link" href="https://www.youtube.com/watch?v=jkEeFAq2Ed8" target="_blank" rel="noopener">Watch the interview <span>&#8599;</span></a>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="who">
+            <p class="label">Brand communities</p>
+            <p class="n">Marc Schumacher</p>
+            <p class="t">Brand &amp; community strategist</p>
+          </div>
+          <div class="body">
+            <p>On the power of brand communities: how loyalty is built around shared values rather than campaigns, and what changes when a brand stops broadcasting and starts convening.</p>
+            <a class="link" href="https://www.youtube.com/watch?v=0yh5EihmNiY" target="_blank" rel="noopener">Watch the interview <span>&#8599;</span></a>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="who">
+            <p class="label">Brand experience</p>
+            <p class="n">Philip Bucknell</p>
+            <p class="t">Experiential marketing</p>
+          </div>
+          <div class="body">
+            <p>On the future of brand experiences: the shift from traditional marketing toward live, immersive work, and the rising expectations audiences bring to a room before they enter it.</p>
+            <a class="link" href="https://www.youtube.com/watch?v=BcO-Z3EJWb0" target="_blank" rel="noopener">Watch the interview <span>&#8599;</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="car-ctl">
+        <div class="dots" id="dots" role="tablist" aria-label="Podcasts"></div>
+        <div class="car-nav">
+          <button type="button" id="prev" aria-label="Previous podcast">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M10 2 4 8l6 6"/></svg>
+          </button>
+          <button type="button" id="next" aria-label="Next podcast">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
 
 <!-- ============ COMMUNITIES ============ -->
@@ -414,13 +423,16 @@
 
 <footer>
   <div class="wrap foot">
-    <span class="mono">AT</span>
+    <ul class="foot-social" aria-label="Social media">
+      <li><a href="#" aria-label="Facebook (placeholder link)" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 9H15V6.5h-1.5C11.6 6.5 10 8.1 10 10.2V12H8v3h2v6h3v-6h2.1l.4-3H13v-1.3c0-.5.3-.7.5-.7Z"/></svg>
+      </a></li>
+    </ul>
     <nav aria-label="Footer">
       <a href="#top">Home</a>
-      <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#about">About</a>
       <a href="#proj">Project</a>
-      <a href="#journal">Blog</a>
       <a href="#communities">Communities</a>
       <a href="#contact">Let&rsquo;s Work Together!</a>
     </nav>

@@ -152,36 +152,34 @@ html.cursor-on #cursor{opacity:1}
 .magnetic{transition:transform .28s cubic-bezier(.2,.7,.3,1)}
 
 /* ============ header ============ */
-/* Transparent over the hero; .solid (added by script.js past 60px scroll)
-   brings in a fill and scroll-depth shadow. Which fill depends on
-   [data-tone] — set by the scrollspy in script.js to match whichever
-   section is currently behind the header, navy for dark sections, cream
-   for light ones — so the bar always reads against what's under it. */
+/* Fixed navy gradient at all times — no scroll-triggered fill swap. Nav
+   text/logo stay a fixed ivory with a soft dark shadow for legibility
+   instead of swapping color per section (that swap was timed off the
+   scrollspy's viewport-center rootMargin, which doesn't line up with
+   what's actually behind the header strip at the top of the page). */
 header{
   position:fixed;inset:0 0 auto;z-index:80;
-  background:transparent;
-  transition:background .4s var(--ease),box-shadow .5s var(--ease);
+  background:linear-gradient(180deg,var(--char-deep) 0%,rgba(7,21,57,0) 100%);
 }
-header.solid{background:var(--char);box-shadow:0 12px 34px -18px rgba(7,21,57,.55)}
-header.solid[data-tone="light"]{background:var(--bone)}
-
-header.solid[data-tone="light"] .nav a.n{color:var(--ink)}
-header.solid[data-tone="light"] .nav a.n.active{color:var(--crimson)}
-header.solid[data-tone="light"] .burger span{background:var(--ink)}
 
 .nav{
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
   height:var(--hdr-h);column-gap:16px;
 }
 
+.mark{grid-column:2;display:flex;align-items:center;justify-self:center}
+.mark img{height:38px;width:auto;display:block;filter:drop-shadow(0 1px 3px rgba(7,21,57,.55))}
 
 /* the <nav> element is the grid item that needs centering; the ul just lays
    out its own children */
 .nav nav{justify-self:center}
+.nav nav:first-of-type{grid-column:1;justify-self:start}
+.nav nav:last-of-type{grid-column:3;justify-self:end}
 .nav ul{display:flex;gap:clamp(18px,3vw,38px);list-style:none;margin:0;padding:0}
 .nav a.n{
   text-decoration:none;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
   font-weight:500;color:var(--ivory);opacity:.8;position:relative;padding-bottom:4px;
+  text-shadow:0 1px 3px rgba(7,21,57,.55);
   transition:opacity .3s ease,color .3s ease;
 }
 .nav a.n::after{
@@ -269,7 +267,8 @@ header.solid[data-tone="light"] .burger span{background:var(--ink)}
 /* burger + drawer */
 .burger{
   display:none;width:40px;height:40px;padding:0;border:0;background:transparent;
-  cursor:pointer;position:relative;z-index:2;justify-self:end;
+  cursor:pointer;position:relative;z-index:2;grid-column:3;grid-row:1;justify-self:end;
+  filter:drop-shadow(0 1px 2px rgba(7,21,57,.5));
 }
 .burger span{
   position:absolute;left:9px;width:22px;height:1px;background:var(--ivory);
@@ -357,11 +356,11 @@ header.solid[data-tone="light"] .burger span{background:var(--ink)}
 .hero-tag .ln:nth-child(2) > i{transition-delay:.09s}
 .hero-tag .ln:nth-child(3) > i{transition-delay:.18s}
 .hero-tag .t-serif{
-  font-family:'Bodoni Moda',Didot,Georgia,serif;font-weight:400;
+  font-family:'Cormorant Garamond',Didot,Georgia,serif;font-weight:500;
   font-size:clamp(28px,4.6vw,56px);font-style:italic;letter-spacing:-.01em;
 }
 .hero-tag .t-script{
-  font-family:'Pinyon Script',cursive;font-size:clamp(40px,6.8vw,88px);line-height:.8;
+  font-family:'Pinyon Script',cursive;font-weight:400;font-size:clamp(40px,6.8vw,88px);line-height:.8;
   color:var(--gold-soft);position:relative;top:.08em;
 }
 .hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:clamp(40px,7vh,76px)}
@@ -386,7 +385,31 @@ header.solid[data-tone="light"] .burger span{background:var(--ink)}
 }
 
 /* ============ statement ============ */
-.statement{text-align:center}
+/* Ambient feedback words — drift in from the left/right edges and fade
+   out before reaching the centered text, so they never sit on top of it. */
+.side-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.side-fx .fx{
+  position:absolute;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold-soft);opacity:0;white-space:nowrap;
+  animation:fxDriftL 5.2s ease-in-out infinite;
+}
+.side-fx .fx-l{left:3%}
+.side-fx .fx-r{right:3%;animation-name:fxDriftR}
+@keyframes fxDriftL{
+  0%,100%{opacity:0;transform:translateX(-24px)}
+  16%{opacity:.85;transform:translateX(0)}
+  50%{opacity:.7;transform:translateX(32px)}
+  76%{opacity:0;transform:translateX(60px)}
+}
+@keyframes fxDriftR{
+  0%,100%{opacity:0;transform:translateX(24px)}
+  16%{opacity:.85;transform:translateX(0)}
+  50%{opacity:.7;transform:translateX(-32px)}
+  76%{opacity:0;transform:translateX(-60px)}
+}
+@media(max-width:860px){.side-fx{display:none}}
+
+.statement{text-align:center;position:relative;z-index:1}
 .statement .glyph{margin:0 auto 44px;display:block}
 .statement blockquote{
   margin:0 auto;max-width:19ch;
@@ -395,6 +418,19 @@ header.solid[data-tone="light"] .burger span{background:var(--ink)}
 }
 .statement blockquote em{font-style:italic;color:var(--gold-soft)}
 .statement .sub{margin:44px auto 0;max-width:60ch;color:var(--ivory-soft);font-size:clamp(15px,1.5vw,17px);line-height:1.9}
+/* Keyword highlights — each briefly flashes a color then fades back,
+   staggered so they light up one at a time rather than all together. */
+.statement .sub .kw{animation:kwFlash 9s ease-in-out infinite}
+.statement .sub .kw:nth-of-type(1){animation-delay:0s}
+.statement .sub .kw:nth-of-type(2){animation-delay:1.5s}
+.statement .sub .kw:nth-of-type(3){animation-delay:3s}
+.statement .sub .kw:nth-of-type(4){animation-delay:4.5s}
+.statement .sub .kw:nth-of-type(5){animation-delay:6s}
+.statement .sub .kw:nth-of-type(6){animation-delay:7.5s}
+@keyframes kwFlash{
+  0%,88%,100%{color:var(--ivory-soft)}
+  4%,10%{color:var(--gold-soft)}
+}
 .statement .rule{width:1px;height:64px;background:linear-gradient(to bottom,var(--gold),transparent);margin:52px auto 0}
 
 /* ============ about ============ */
@@ -755,7 +791,13 @@ header.solid[data-tone="light"] .burger span{background:var(--ink)}
 /* ============ footer ============ */
 footer{background:var(--char-deep);color:var(--ivory);padding:60px 0 46px}
 .foot{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.foot .mono{font-family:'Bodoni Moda',Georgia,serif;font-size:20px;letter-spacing:.06em}
+.foot-social{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+.foot-social a{
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--rule-light);
+  display:grid;place-items:center;color:var(--ivory-soft);
+  transition:color .3s ease,border-color .3s ease;
+}
+.foot-social a:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
 .foot nav{display:flex;gap:26px;flex-wrap:wrap}
 .foot a{font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--ivory-soft);transition:color .3s ease}
 .foot a:hover{color:var(--gold-soft)}
@@ -800,7 +842,8 @@ header.solid :focus-visible,.dark :focus-visible,.deep :focus-visible,.contact :
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv,.stagger > *,.hero-tag .ln > i{opacity:1 !important;transform:none !important;transition:none !important}
-  .scroll-cue i::after,.marquee-track,.hero-media img,.dots button::after{animation:none !important}
+  .scroll-cue i::after,.marquee-track,.hero-media img,.dots button::after,.statement .sub .kw{animation:none !important}
   .photo{opacity:1}
+  .side-fx{display:none}
   *{transition-duration:.01ms !important}
 }
