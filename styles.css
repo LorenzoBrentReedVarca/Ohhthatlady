@@ -433,6 +433,19 @@ header{
 }
 .statement .rule{width:1px;height:64px;background:linear-gradient(to bottom,var(--gold),transparent);margin:52px auto 0}
 
+/* ============ aviation ============ */
+#aviation{overflow:hidden}
+#aviation .sec-head{margin-bottom:28px}
+#aviation .lede{color:var(--ivory-soft)}
+.aviation-media{position:absolute;inset:0}
+.aviation-video{width:100%;height:100%;object-fit:cover}
+.aviation-veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(7,21,57,.92) 0%,rgba(7,21,57,.82) 38%,rgba(7,21,57,.58) 68%,rgba(7,21,57,.8) 100%);
+}
+#aviation .wrap{position:relative;z-index:2}
+@media(prefers-reduced-motion:reduce){.aviation-video{display:none}}
+
 /* ============ about ============ */
 .about-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:clamp(36px,6vw,84px);align-items:start}
 .about-figure{position:relative;margin:0}
@@ -526,9 +539,17 @@ header{
 .chip-groups h5{margin:0 0 12px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--crimson)}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{
+  position:relative;overflow:hidden;cursor:default;
   font-size:11px;letter-spacing:.01em;padding:6px 12px;border:1px solid var(--rule-dark);
   border-radius:100px;color:var(--ink-soft);white-space:nowrap;line-height:1.5;
+  transition:color .35s ease,border-color .35s ease,transform .3s var(--ease);
 }
+.chip::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--crimson);
+  transform:translateY(101%);transition:transform .4s var(--ease);
+}
+.chip:hover{color:var(--ivory);border-color:var(--crimson);transform:translateY(-3px)}
+.chip:hover::before{transform:none}
 .sk-flat{margin-bottom:clamp(32px,5vw,48px)}
 .sk-flat .chips{gap:8px}
 .sk-paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;border-top:1px solid var(--rule-dark);padding-top:clamp(28px,4vw,40px)}
@@ -536,8 +557,16 @@ header{
 .sk-path ol{margin:0;padding-left:18px;color:var(--ink-soft);font-size:12.5px;line-height:1.9}
 .sk-path li::marker{color:var(--gold);font-size:11px}
 
-/* ============ projects (folded into Services) ============ */
-.proj-intro{margin:clamp(72px,9vw,112px) 0 clamp(32px,4.5vw,48px);border-top:1px solid var(--rule-dark);padding-top:clamp(40px,5vw,60px)}
+/* ============ projects ============ */
+/* Podcasts is nested inside this section right after the project list —
+   .band's own padding wraps the section as a whole, not the gap between
+   these two children, so without this the light background ends flush
+   against the dark podcasts block with no breathing room. */
+#podcasts{margin-top:clamp(64px,9vw,112px)}
+/* Podcasts (dark, full-bleed) is the last thing in this section, so the
+   section's own bottom padding would leave a stray strip of the light
+   body background between it and the next section — kill it here. */
+#proj-section{padding-bottom:0}
 .proj-tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:clamp(32px,4.5vw,48px)}
 .proj-tab{
   font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;padding:11px 18px;
@@ -720,14 +749,22 @@ header{
 .com ul{list-style:none;margin:0;padding:0;font-size:13.5px;line-height:1.95;color:var(--ink-soft)}
 .com li{position:relative;padding-left:15px}
 .com li::before{content:"";position:absolute;left:0;top:.92em;width:6px;height:1px;background:var(--gold)}
-.tribes{margin-top:clamp(44px,6vw,72px);border-top:1px solid var(--rule-dark);padding-top:26px;display:flex;flex-wrap:wrap;gap:10px 12px}
-.tribes span{
-  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
-  border:1px solid var(--rule-dark);padding:6px 13px;border-radius:100px;
-  transition:border-color .35s ease,color .35s ease,background .35s ease;
+.tribes{margin-top:clamp(44px,6vw,72px);border-top:1px solid var(--rule-dark);padding-top:clamp(28px,4vw,40px)}
+.tribes .label{margin-bottom:14px}
+.tribes-lede{margin:0 0 22px;max-width:52ch;font-size:14px;line-height:1.75;color:var(--ink-soft)}
+.tribes-list{display:flex;flex-wrap:wrap;gap:11px 12px}
+.tribes-list span{
+  position:relative;overflow:hidden;cursor:default;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);
+  border:1px solid var(--rule-dark);padding:9px 17px;border-radius:100px;
+  transition:color .35s ease,border-color .35s ease,transform .3s var(--ease);
 }
-.tribes span:hover{border-color:var(--crimson);color:var(--crimson);background:rgba(142,28,36,.05)}
-.tribes .lead{border:0;padding:6px 0;color:var(--crimson);font-weight:500}
+.tribes-list span::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--crimson);
+  transform:translateY(101%);transition:transform .4s var(--ease);
+}
+.tribes-list span:hover{color:var(--ivory);border-color:var(--crimson);transform:translateY(-3px)}
+.tribes-list span:hover::before{transform:none}
 @media(max-width:860px){.com-grid{grid-template-columns:1fr}.com .frame{aspect-ratio:16/6}}
 
 /* ============ contact ============ */
